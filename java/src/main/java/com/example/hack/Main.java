@@ -3,6 +3,7 @@ package com.example.hack;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -21,7 +22,8 @@ public class Main extends Application {
         Scene scene = new Scene(loader.load());
         scene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
         stage.setScene(scene);
-        stage.setTitle("Qml Runtime");
+        stage.setTitle("Clash of Forest");
+        stage.getIcons().add(new Image(getClass().getResource("icon.png").toString()));
         stage.show();
     }
 
