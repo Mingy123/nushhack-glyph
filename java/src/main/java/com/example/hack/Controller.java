@@ -57,7 +57,7 @@ public class Controller {
         highlighter.setOnMouseClicked(mev -> {
             Paint fill = highlighter.getFill();
             if (Color.web("rgba(0,255,0,0.5)").equals(fill)) {
-                music(goodSFX);
+                music("goodSFX.wav");
                 addItem(buyIndex, selGridX, selGridY);
                 coins -= costs[buyIndex];
                 coinButton.setText("Coins: " + coins);
@@ -67,7 +67,7 @@ public class Controller {
                 items.remove(remove);
                 items.remove(remove);
                 grid.getChildren().remove(remove);
-            }
+            } else music("invalid.wav");
         });
     }
 
@@ -90,7 +90,7 @@ public class Controller {
             int x = rd.nextInt(10), y = rd.nextInt(10);
             Building remove = cellOccupied(x, y);
             if (remove != null) {
-                music(explode);
+                music("explode.wav");
                 highlighter.setX(remove.x * 75);
                 highlighter.setY(remove.y * 75);
                 highlighter.setWidth(remove.width * 75);
