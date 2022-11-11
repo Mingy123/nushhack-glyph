@@ -25,6 +25,10 @@ public class Main extends Application {
         stage.show();
     }
 
+    public static void main (String[] args) {
+        launch(args);
+    }
+
     public void stop() {
         System.out.println("saving and closing");
         lockfile.delete();

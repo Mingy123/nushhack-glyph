@@ -1,3 +1,5 @@
 .idea/
 env/
 backend/src/*.png
+java/src/main/resources/META-INF/MANIFEST.MF
+*.MF
