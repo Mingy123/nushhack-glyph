@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import com.example.hack.ToggleButton?>
+
+<?import javafx.scene.control.Button?>
+<VBox fx:id="root" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" spacing="30.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hack.Controller">
+  <Pane fx:id="stack" maxHeight="750.0" maxWidth="750.0" minHeight="750.0" minWidth="750.0" prefHeight="750.0" prefWidth="750.0">
+    <GridPane fx:id="grid" gridLinesVisible="true" maxHeight="750.0" maxWidth="750.0" minHeight="750.0" minWidth="750.0">
+      <columnConstraints>
+          <ColumnConstraints maxWidth="75.0" minWidth="75.0" />
+        <ColumnConstraints maxWidth="75.0" minWidth="75.0" />
+        <ColumnConstraints maxWidth="75.0" minWidth="75.0" />
+          <ColumnConstraints maxWidth="75.0" minWidth="75.0" />
+          <ColumnConstraints maxWidth="75.0" minWidth="75.0" />
+          <ColumnConstraints maxWidth="75.0" minWidth="75.0" />
+          <ColumnConstraints maxWidth="75.0" minWidth="75.0" />
+          <ColumnConstraints maxWidth="75.0" minWidth="75.0" />
+          <ColumnConstraints maxWidth="75.0" minWidth="75.0" />
+          <ColumnConstraints maxWidth="75.0" minWidth="75.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="75.0" minHeight="75.0" />
+          <RowConstraints maxHeight="75.0" minHeight="75.0" />
+          <RowConstraints maxHeight="75.0" minHeight="75.0" />
+          <RowConstraints maxHeight="75.0" minHeight="75.0" />
+          <RowConstraints maxHeight="75.0" minHeight="75.0" />
+        <RowConstraints maxHeight="75.0" minHeight="75.0" />
+        <RowConstraints maxHeight="75.0" minHeight="75.0" />
+          <RowConstraints maxHeight="75.0" minHeight="75.0" />
+          <RowConstraints maxHeight="75.0" minHeight="75.0" />
+          <RowConstraints maxHeight="75.0" minHeight="75.0" />
+      </rowConstraints>
+    </GridPane>
+    <VBox.margin>
+       <Insets />
+    </VBox.margin>
+  </Pane>
+  <FlowPane alignment="CENTER" hgap="20.0" prefHeight="60.0" prefWidth="200.0">
+     <children>
+        <Button fx:id="coinButton" mnemonicParsing="false" text="Coins">
+           <font>
+              <Font size="24.0" />
+           </font>
+        </Button>
+        <ToggleButton mnemonicParsing="false" text="Shack">
+           <font>
+              <Font size="24.0" />
+           </font>
+        </ToggleButton>
+        <ToggleButton mnemonicParsing="false" text="Hut">
+           <font>
+              <Font size="24.0" />
+           </font>
+        </ToggleButton>
+        <ToggleButton mnemonicParsing="false" text="HDB">
+           <font>
+              <Font size="24.0" />
+           </font>
+        </ToggleButton>
+        <ToggleButton mnemonicParsing="false" text="Palace">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </ToggleButton>
+        <ToggleButton mnemonicParsing="false" text="Remove">
+           <font>
+              <Font size="24.0" />
+           </font>
+        </ToggleButton>
+     </children>
+  </FlowPane>
+   <Label fx:id="status" text="Status bar">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
+</VBox>

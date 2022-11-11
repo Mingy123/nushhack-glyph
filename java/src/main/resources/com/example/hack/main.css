@@ -1,0 +1,21 @@
+.root {
+    -fx-background-image: url("bg0.png");
+    -fx-background-size: 100% 100%;
+    -fx-background-color: #c3ffff;
+}
+
+.gridpane {
+    -fx-background-color: #ffce93;
+}
+
+.toggle-button {
+    -fx-background-color: #109fff;
+} .toggle-button:toggled {
+    -fx-background-color: #0055ff;
+}
+
+#coinButton {
+    -fx-background-color: #ffd700;
+    -fx-border-color: #fff045;
+    -fx-border-width: 2px;
+}
