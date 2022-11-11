@@ -91,15 +91,15 @@ public class Controller {
             Building remove = cellOccupied(x, y);
             if (remove != null) {
                 music("explode.wav");
-                highlighter.setX(remove.x * 75);
-                highlighter.setY(remove.y * 75);
-                highlighter.setWidth(remove.width * 75);
-                highlighter.setHeight(remove.height * 75);
+                highlighter.setX(remove.x * 60);
+                highlighter.setY(remove.y * 60);
+                highlighter.setWidth(remove.width * 60);
+                highlighter.setHeight(remove.height * 60);
                 items.remove(remove);
                 grid.getChildren().remove(remove);
             } else {
-                highlighter.setX(x * 75); highlighter.setY(y * 75);
-                highlighter.setWidth(75); highlighter.setHeight(75);
+                highlighter.setX(x * 60); highlighter.setY(y * 60);
+                highlighter.setWidth(60); highlighter.setHeight(60);
             }
         });
     }
@@ -107,8 +107,8 @@ public class Controller {
     public void highlight(MouseEvent mev) {
         if (ToggleButton.selected == null) return;
         String text = ToggleButton.selected.getText();
-        selGridX = (int) (mev.getX() / 75);
-        selGridY = (int) (mev.getY() / 75);
+        selGridX = (int) (mev.getX() / 60);
+        selGridY = (int) (mev.getY() / 60);
         if (selGridX == 10 || selGridY == 10) return;
         if (text.startsWith("Shack")) buyIndex = 0;
         if (text.startsWith("Hut")) buyIndex = 1;
@@ -121,10 +121,10 @@ public class Controller {
             if (remove == null) highlighter.setVisible(false);
             else {
                 highlighter.setVisible(true);
-                highlighter.setX(remove.x * 75);
-                highlighter.setY(remove.y * 75);
-                highlighter.setWidth(remove.width * 75);
-                highlighter.setHeight(remove.height * 75);
+                highlighter.setX(remove.x * 60);
+                highlighter.setY(remove.y * 60);
+                highlighter.setWidth(remove.width * 60);
+                highlighter.setHeight(remove.height * 60);
             } return;
         }
         int width = Building.widths[buyIndex];
@@ -133,8 +133,8 @@ public class Controller {
         highlighter.setVisible(true);
         if (selGridX + width > 9) selGridX = 10 - width;
         if (selGridY + height > 9) selGridY = 10 - height;
-        highlighter.setX(75 * selGridX); highlighter.setY(75 * selGridY);
-        highlighter.setWidth(width * 75); highlighter.setHeight(height * 75);
+        highlighter.setX(60 * selGridX); highlighter.setY(60 * selGridY);
+        highlighter.setWidth(width * 60); highlighter.setHeight(height * 60);
         if (valid(selGridX, selGridY, width, height)) highlighter.setFill(Color.web("rgba(0,255,0,0.5)"));
         else highlighter.setFill(Color.web("rgba(255,0,0,0.5)"));
     }
@@ -143,8 +143,8 @@ public class Controller {
         Building im = new Building(getClass().getResource(images[index]).toString(), index, x, y);
         GridPane.setColumnSpan(im, im.width);
         GridPane.setRowSpan(im, im.height);
-        im.setFitWidth(75 * im.width);
-        im.setFitHeight(75 * im.height);
+        im.setFitWidth(60 * im.width);
+        im.setFitHeight(60 * im.height);
         grid.add(im, x, y);
         items.add(im);
     }
