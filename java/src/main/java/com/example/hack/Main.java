@@ -10,8 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main extends Application {
+    File lockfile = new File(".base.lock");
     public void start(Stage stage) throws IOException {
-        File lockfile = new File(".base.lock");
         if (!lockfile.createNewFile()) {
             System.err.println("There is a lock on the database. Please try again.");
             //System.exit(0);
@@ -27,6 +27,7 @@ public class Main extends Application {
 
     public void stop() {
         System.out.println("saving and closing");
+        lockfile.delete();
         try {
             Controller.writeFile();
         } catch (FileNotFoundException error) {

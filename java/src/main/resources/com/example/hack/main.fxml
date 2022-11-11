@@ -44,34 +44,34 @@
        <Insets />
     </VBox.margin>
   </Pane>
-  <FlowPane alignment="CENTER" hgap="20.0" prefHeight="60.0" prefWidth="200.0">
+  <FlowPane alignment="CENTER" hgap="10.0" prefHeight="60.0" prefWidth="200.0">
      <children>
         <Button fx:id="coinButton" mnemonicParsing="false" text="Coins">
            <font>
               <Font size="24.0" />
            </font>
         </Button>
-        <ToggleButton mnemonicParsing="false" text="Shack">
+        <ToggleButton mnemonicParsing="false" text="Shack (50)">
            <font>
               <Font size="24.0" />
            </font>
         </ToggleButton>
-        <ToggleButton mnemonicParsing="false" text="Hut">
+        <ToggleButton mnemonicParsing="false" text="Hut (200)">
            <font>
               <Font size="24.0" />
            </font>
         </ToggleButton>
-        <ToggleButton mnemonicParsing="false" text="HDB">
+        <ToggleButton mnemonicParsing="false" text="HDB (1500)">
            <font>
               <Font size="24.0" />
            </font>
         </ToggleButton>
-        <ToggleButton mnemonicParsing="false" text="Palace">
+        <ToggleButton mnemonicParsing="false" text="Palace (6900)">
             <font>
                 <Font size="24.0" />
             </font>
         </ToggleButton>
-        <ToggleButton mnemonicParsing="false" text="Remove">
+        <ToggleButton fx:id="removeButton" mnemonicParsing="false" text="Remove">
            <font>
               <Font size="24.0" />
            </font>

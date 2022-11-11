@@ -19,3 +19,9 @@
     -fx-border-color: #fff045;
     -fx-border-width: 2px;
 }
+
+#removeButton {
+    -fx-background-color: #ff694b;
+} #removeButton:toggled {
+    -fx-background-color: red;
+}

@@ -29,7 +29,7 @@ public class Controller {
     public Button coinButton;
     public final static String[] images = new String[]{ "shack.png", "hut.png", "hdb.png", "palace.png" };
     private final Rectangle highlighter = new Rectangle();
-    public static final String explode = "assets/explode.wav", goodSFX = "assets/goodSFX.wav";
+    public static final String explode = "explode.wav", goodSFX = "goodSFX.wav";
 
     public void initialize() throws FileNotFoundException {
         grid.getStyleClass().add("gridpane");
@@ -110,10 +110,10 @@ public class Controller {
         selGridX = (int) (mev.getX() / 75);
         selGridY = (int) (mev.getY() / 75);
         if (selGridX == 10 || selGridY == 10) return;
-        if (text.equals("Shack")) buyIndex = 0;
-        if (text.equals("Hut")) buyIndex = 1;
-        if (text.equals("HDB")) buyIndex = 2;
-        if (text.equals("Palace")) buyIndex = 3;
+        if (text.startsWith("Shack")) buyIndex = 0;
+        if (text.startsWith("Hut")) buyIndex = 1;
+        if (text.startsWith("HDB")) buyIndex = 2;
+        if (text.startsWith("Palace")) buyIndex = 3;
         if (text.equals("Remove")) {
             buyIndex = -1;
             highlighter.setFill(Color.RED);
@@ -140,7 +140,7 @@ public class Controller {
     }
 
     public void addItem(int index, int x, int y) {
-        Building im = new Building("file:assets/" + images[index], index, x, y);
+        Building im = new Building(getClass().getResource(images[index]).toString(), index, x, y);
         GridPane.setColumnSpan(im, im.width);
         GridPane.setRowSpan(im, im.height);
         im.setFitWidth(75 * im.width);
@@ -177,6 +177,6 @@ public class Controller {
     }
 
     public static void music(String url) {
-        new MediaPlayer(new Media(new File(url).toURI().toString())).play();
+        new MediaPlayer(new Media(Controller.class.getResource(url).toString())).play();
     }
 }
