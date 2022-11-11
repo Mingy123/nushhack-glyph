@@ -15,7 +15,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         if (!lockfile.createNewFile()) {
             System.err.println("There is a lock on the database. Please try again.");
-            //System.exit(0);
+            System.exit(0);
         }
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("main.fxml"));
