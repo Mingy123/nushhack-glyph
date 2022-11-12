@@ -27,4 +27,12 @@ However, if you are not productive, you will lose your in-game coins. When your 
    2. Java Frontend (when checking city)
 
             java -jar COF.jar
-      Note: There may be some scaling issues in Windows. For greater compatibility, please set your window scale to 100% in your settings.
+      Note: There may be some scaling issues in Windows. For greater compatibility, please set your window scale to 125% or smaller in your settings.
+
+## Work Distribution Matrix
+
+| Ming Hong | Yue Heng |
+| --------- | -------- |
+| Java Game | Python Backend |
+| JavaFX Components | Neural Network Training |
+| Research and Ideation | Slides |
