@@ -21,8 +21,9 @@ However, if you are not productive, you will lose your in-game coins. When your 
 
 2. Run files
    1. Python Backend (run when starting work)
-   
-            python src/main.py
+            
+            cd src
+            python main.py
 
    2. Java Frontend (when checking city)
 
