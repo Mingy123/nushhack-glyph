@@ -29,7 +29,7 @@ public class Controller {
     public Button coinButton;
     public final static String[] images = new String[]{ "shack.png", "hut.png", "hdb.png", "palace.png" };
     private final Rectangle highlighter = new Rectangle();
-    public static final String explode = "explode.wav", goodSFX = "goodSFX.wav";
+    public static final String explode = "explode.wav", goodSFX = "success.wav";
 
     public void initialize() throws FileNotFoundException {
         grid.getStyleClass().add("gridpane");
@@ -39,7 +39,7 @@ public class Controller {
         for (int i = 0; i < 4; i++) {
             Scanner line = new Scanner(sc.nextLine());
             while (line.hasNextInt())
-                addItem(i, line.nextInt(), line.nextInt());
+                addItem(i, line.nextInt(), line.nextInt(), line.nextInt());
         }
 
         if (coins < 0) battleship_setup();
@@ -47,9 +47,7 @@ public class Controller {
     }
 
     private void normal_setup() {
-        for (Building item : items) population += ppl[item.index];
-        status.setText(String.format("You currently own %d people", population));
-        coinButton.setText("Coins: " + coins);
+        refreshPopulation(); refreshCoin();
         ToggleButton.setOnDeselect(() -> highlighter.setVisible(false));
         ToggleButton.setOnChange(() -> highlighter.setVisible(false));
         grid.setOnMouseMoved(this::highlight);
@@ -57,10 +55,10 @@ public class Controller {
         highlighter.setOnMouseClicked(mev -> {
             Paint fill = highlighter.getFill();
             if (Color.web("rgba(0,255,0,0.5)").equals(fill)) {
-                music("goodSFX.wav");
-                addItem(buyIndex, selGridX, selGridY);
+                music("success.wav");
+                addItem(buyIndex, selGridX, selGridY, 1);
                 coins -= costs[buyIndex];
-                coinButton.setText("Coins: " + coins);
+                refreshCoin();
             } else if (Color.RED.equals(fill)) {
                 Building remove = cellOccupied(selGridX, selGridY);
                 if (remove == null) return;
@@ -125,6 +123,7 @@ public class Controller {
                 highlighter.setY(remove.y * 60);
                 highlighter.setWidth(remove.width * 60);
                 highlighter.setHeight(remove.height * 60);
+                refreshPopulation();
             } return;
         }
         int width = Building.widths[buyIndex];
@@ -139,14 +138,28 @@ public class Controller {
         else highlighter.setFill(Color.web("rgba(255,0,0,0.5)"));
     }
 
-    public void addItem(int index, int x, int y) {
-        Building im = new Building(getClass().getResource(images[index]).toString(), index, x, y);
-        GridPane.setColumnSpan(im, im.width);
-        GridPane.setRowSpan(im, im.height);
-        im.setFitWidth(60 * im.width);
-        im.setFitHeight(60 * im.height);
-        grid.add(im, x, y);
-        items.add(im);
+    public void addItem(int index, int x, int y, int level) {
+        Building item = new Building(getClass().getResource(images[index]).toString(),
+                index, x, y, level, () -> { refreshCoin(); refreshPopulation(); });
+        GridPane.setColumnSpan(item, item.width);
+        GridPane.setRowSpan(item, item.height);
+        item.imageView.setFitWidth(60 * item.width);
+        item.imageView.setFitHeight(60 * item.height);
+        grid.add(item, x, y);
+        items.add(item);
+        refreshPopulation();
+    }
+
+    void refreshPopulation() {
+        population = 0;
+        for (Building item : items) {
+            System.out.println(population);
+            population += ppl[item.index] * (0.5 + item.level * 0.5);
+            System.out.println(population);
+        }
+        status.setText(String.format("You currently own %d people", population));
+    } void refreshCoin() {
+        coinButton.setText("Coins: " + coins);
     }
 
     boolean valid(int x, int y, int width, int height) {
@@ -171,12 +184,18 @@ public class Controller {
         pw.println(coins);
         for (int i = 0; i < 4; i++) {
             for (Building item : items) {
-                if (item.index == i) pw.printf("%d %d ", item.x, item.y);
+                if (item.index == i) pw.printf("%d %d %d ", item.x, item.y, item.level);
             } pw.println();
         } pw.close();
     }
 
     public static void music(String url) {
         new MediaPlayer(new Media(Controller.class.getResource(url).toString())).play();
+    }
+
+    public static boolean deductCoin(int amt) {
+        if (amt > coins) return false;
+        coins -= amt;
+        return true;
     }
 }

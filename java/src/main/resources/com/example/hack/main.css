@@ -12,6 +12,13 @@
     -fx-background-color: #109fff;
 } .toggle-button:toggled {
     -fx-background-color: #0055ff;
+    -fx-text-fill: white;
+}
+
+.building .button {
+    -fx-background-color: rgba(0, 255, 255, 0.7);
+} .building:hover .button {
+    -fx-background-color: #0ff;
 }
 
 #coinButton {
