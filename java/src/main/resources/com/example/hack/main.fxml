@@ -56,17 +56,17 @@
               <Font size="18.0" />
            </font>
         </ToggleButton>
-        <ToggleButton mnemonicParsing="false" text="Hut (200)">
+        <ToggleButton mnemonicParsing="false" text="Coffee (200)">
            <font>
               <Font size="18.0" />
            </font>
         </ToggleButton>
-        <ToggleButton mnemonicParsing="false" text="HDB (1500)">
+        <ToggleButton mnemonicParsing="false" text="Pizza (1500)">
            <font>
               <Font size="18.0" />
            </font>
         </ToggleButton>
-        <ToggleButton mnemonicParsing="false" text="Palace (6900)">
+        <ToggleButton mnemonicParsing="false" text="House (6900)">
             <font>
                 <Font size="18.0" />
             </font>

@@ -27,9 +27,8 @@ public class Controller {
     public Pane stack;
     public Label status;
     public Button coinButton;
-    public final static String[] images = new String[]{ "shack.png", "hut.png", "hdb.png", "palace.png" };
+    public final static String[] images = new String[]{ "shack.png", "coffee.png", "pizza.png", "house.png" };
     private final Rectangle highlighter = new Rectangle();
-    public static final String explode = "explode.wav", goodSFX = "success.wav";
 
     public void initialize() throws FileNotFoundException {
         grid.getStyleClass().add("gridpane");
@@ -109,9 +108,9 @@ public class Controller {
         selGridY = (int) (mev.getY() / 60);
         if (selGridX == 10 || selGridY == 10) return;
         if (text.startsWith("Shack")) buyIndex = 0;
-        if (text.startsWith("Hut")) buyIndex = 1;
-        if (text.startsWith("HDB")) buyIndex = 2;
-        if (text.startsWith("Palace")) buyIndex = 3;
+        if (text.startsWith("Coffee")) buyIndex = 1;
+        if (text.startsWith("Pizza")) buyIndex = 2;
+        if (text.startsWith("House")) buyIndex = 3;
         if (text.equals("Remove")) {
             buyIndex = -1;
             highlighter.setFill(Color.RED);
@@ -152,11 +151,7 @@ public class Controller {
 
     void refreshPopulation() {
         population = 0;
-        for (Building item : items) {
-            System.out.println(population);
-            population += ppl[item.index] * (0.5 + item.level * 0.5);
-            System.out.println(population);
-        }
+        for (Building item : items) population += ppl[item.index] * (0.5 + item.level * 0.5);
         status.setText(String.format("You currently own %d people", population));
     } void refreshCoin() {
         coinButton.setText("Coins: " + coins);
