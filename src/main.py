@@ -32,12 +32,6 @@ while True:
             .format(class_names[np.argmax(score_lite)], 100 * np.max(score_lite))
     )
 
-    if DEMONSTRATION:
-        if np.argmax(score_lite) == 2:
-            pyautogui.alert("This is productive!")
-        if np.argmax(score_lite) == 1:
-            pyautogui.alert("This is NOT productive!")
-
     # Write to file
     if not os.path.exists("../base.dat"):  # create base.dat if it doesnt exist
         with open("../base.dat", "w") as file:
@@ -45,6 +39,7 @@ while True:
             file.close()
 
     if not os.path.exists("../.base.lock"):  # check that base lock doesnt exist
+
         filelines = []
         with open("../base.dat", "r") as file:
             filelines = file.readlines()
@@ -60,6 +55,14 @@ while True:
                 coins += CHANGE_VALUE
             elif np.argmax(score_lite) == 1:
                 coins -= CHANGE_VALUE
+
+            # Doing Work
+            if DEMONSTRATION:
+                if np.argmax(score_lite) == 2:
+                    pyautogui.alert("This is productive! You have " + str(coins) + " coins")
+                if np.argmax(score_lite) == 1:
+                    pyautogui.alert("This is NOT productive! You have " + str(coins) + " coins")
+
             try:
                 file.write(str(coins) + "\n")
                 for i in range(1, len(filelines)):

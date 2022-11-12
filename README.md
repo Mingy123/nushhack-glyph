@@ -17,12 +17,23 @@ However, if you are not productive, you will lose your in-game coins. When your 
    2. Install python dependencies 
 
            pip install -r requirements.txt
+   3. Unzip the TensorFlow Model using 7zip (un7z model.7z.001, the rest will follow)
 
 2. Run files
    1. Python Backend (run when starting work)
-   
-            python src/main.py
+            
+            cd src
+            python main.py
 
    2. Java Frontend (when checking city)
 
             java -jar COF.jar
+      Note: There may be some scaling issues in Windows. For greater compatibility, please set your window scale to 125% or smaller in your settings.
+
+## Work Distribution Matrix
+
+| Ming Hong | Yue Heng |
+| --------- | -------- |
+| Java Game | Python Backend |
+| JavaFX Components | Neural Network Training |
+| Research and Ideation | Slides |
