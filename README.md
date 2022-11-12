@@ -17,6 +17,7 @@ However, if you are not productive, you will lose your in-game coins. When your 
    2. Install python dependencies 
 
            pip install -r requirements.txt
+   3. Unzip the TensorFlow Model using 7zip (un7z model.7z.001, the rest will follow)
 
 2. Run files
    1. Python Backend (run when starting work)
@@ -26,3 +27,4 @@ However, if you are not productive, you will lose your in-game coins. When your 
    2. Java Frontend (when checking city)
 
             java -jar COF.jar
+      Note: There may be some scaling issues in Windows. For greater compatibility, please set your window scale to 100% in your settings.
